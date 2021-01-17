@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+
+.has-success {
+    .form-control {
+        color: royalblue;
+        border-color: royalblue;
+    }
+}
+
+.has-danger {
+    .form-control {
+        color: red;
+        border-color: red;
+    }
+}
+
+.form-control {
+    color: royalblue;
+}
+
+.form-control.validation-field.ng-touched {
+    &.ng-invalid {
+        border-color: red
+    }
+    &.ng-valid {
+        border-color: royalblue
+    }
+}
+
+.form-control-label {
+    font-weight: bold;
+}
+
+.required:after {
+    content: '*';
+    color: red;
+    font-weight: bold;
+}
+
+.form-group label {
+    margin-bottom: 0.2 rem;
+}
+
+.text-danger {
+    color: red;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: royalblue;
+    border-color: royalblue;
+    &:hover,
+    &:active,
+    &:active {
+        background-color: darkblue;
+        border-color: darkblue;
+    }
+    .btn-rounded {
+        border-radius: 5rem;
+    }
+}
