@@ -1,30 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 
+$primary-color: #3e50b4;
+$success-color: #4bae4f;
+$info-color: #00bbd3;
+$danger-color:#f34235;
 .has-success {
-    .form-control {
-        color: royalblue;
-        border-color: royalblue;
-    }
+    color: $primary-color;
+    border-color: $primary-color;
 }
 
 .has-danger {
-    .form-control {
-        color: red;
-        border-color: red;
-    }
+    color: $danger-color;
+    border-color: $danger-color;
 }
 
 .form-control {
-    color: royalblue;
-}
-
-.form-control.validation-field.ng-touched {
-    &.ng-invalid {
-        border-color: red
-    }
-    &.ng-valid {
-        border-color: royalblue
-    }
+    color: $primary-color;
 }
 
 .form-control-label {
@@ -33,7 +24,7 @@
 
 .required:after {
     content: '*';
-    color: red;
+    color: $danger-color;
     font-weight: bold;
 }
 
@@ -42,13 +33,14 @@
 }
 
 .text-danger {
-    color: red;
+    color: $danger-color;
 }
 
 .btn-primary {
     color: #fff;
-    background-color: royalblue;
-    border-color: royalblue;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    ;
     &:hover,
     &:active,
     &:active {

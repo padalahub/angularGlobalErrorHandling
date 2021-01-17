@@ -5,11 +5,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormControlErrorComponent } from './form-control-error/form-control-error.component';
+import { NumberDirective } from './directives/number.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormControlErrorComponent
+    FormControlErrorComponent,
+    NumberDirective
   ],
   imports: [
     BrowserModule,
@@ -17,6 +19,7 @@ import { FormControlErrorComponent } from './form-control-error/form-control-err
     FormsModule, ReactiveFormsModule
   ],
   providers: [],
+  exports:[NumberDirective],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

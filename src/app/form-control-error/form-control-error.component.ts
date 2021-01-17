@@ -34,7 +34,10 @@ export class FormControlErrorComponent implements OnInit {
   }
   getValidatorErrorMessage(controlName: string, validatorName: string, validatorValue?: any) {
     const config= {
-      required: `${_.startCase(controlName)} is required`
+      required: `${_.startCase(controlName)} is required`,
+      pattern: ` Invalid ${_.startCase(controlName)}`,
+      minlength: `Must be ${validatorValue.requiredLength} digits`,
+      maxlength: `Must be less than ${validatorValue.requiredLength} digits`,
     }
  return config[validatorName];
   }
