@@ -9,6 +9,12 @@ $danger-color:#f34235;
     border-color: $primary-color;
 }
 
+.border-class {
+    border: thin black solid;
+    margin: 50px;
+    padding: 20px;
+}
+
 .has-danger {
     color: $danger-color;
     border-color: $danger-color;

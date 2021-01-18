@@ -35,7 +35,7 @@ export class NumberDirective {
             }
             return false;
         }
-        if(this.formatType === 'phone'){
+        if(this.formatType === 'phoneNumber'){
             if(event.key >=0 || event.key <=9 || event.key=== 67 || event.key === 86){
 
                 if(this.formattedPhone.value) {

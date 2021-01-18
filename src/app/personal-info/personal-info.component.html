@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <form [formGroup]="personalForm" *ngIf="!this.formSubmitted === true" style="padding: 4px 6px">
+        <div class="p-3 mb-2 bg-info text-white">
+            <span class="text-xl-left"> <h3>Personal Form</h3> </span>
+        </div>
+        <div class="row col-sm-12">
+            <div class="col-sm-3" [ngClass]="displayFieldStyle(personalForm, 'lastName')">
+                <label for="inputEmail4" class="form-control-label">Last Name</label>
+                <div class="form-group">
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="displayFieldStyle(personalForm, 'lastName')" id="inputEmail4">
+                    <app-form-control-error [control]="personalForm.get('lastName')"></app-form-control-error>
+                </div>
+            </div>
+            <div class="col-sm-3" [ngClass]="displayFieldStyle(personalForm, 'mi')">
+                <label for="inputMi4" class="form-control-label">MI</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="mi" [ngClass]="displayFieldStyle(personalForm, 'mi')" id="inputMi4">
+                    <app-form-control-error [control]="personalForm.get('mi')"></app-form-control-error>
+                </div>
+            </div>
+            <div class="col-sm-3" [ngClass]="displayFieldStyle(personalForm, 'firstName')">
+                <label for="inputPassword4" class="form-control-label">First Name</label>
+                <div class="form-group">
+                    <input type="text" class="form-control" formControlName="firstName" [ngClass]="displayFieldStyle(personalForm, 'firstName')" id="inputPassword4">
+                    <app-form-control-error [control]="personalForm.get('firstName')"></app-form-control-error>
+                </div>
+            </div>
+            <div class="col-sm-3" [ngClass]="displayFieldStyle(personalForm, 'gender')">
+                <label for="inputGender4" class="form-control-label">Gender</label>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio1" value="Male">
+                        <label class="form-check-label" for="inputGender4">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" formControlName="gender" id="inlineRadio2" value="Female">
+                        <label class="form-check-label" for="inputGender4">Female</label>
+                    </div>
+
+                </div>
+                <app-form-control-error [control]="personalForm.get('gender')"></app-form-control-error>
+            </div>
+        </div>
+        <div class="row col-sm-12" [formGroup]="personalForm.get('address')">
+            <div class="form-group col-sm-6" [ngClass]="displayFieldStyle(personalForm, 'address.addressLine1')">
+                <label for="inputAddress" class="form-control-label">Address Line1</label>
+                <input type="text" class="form-control" id="inputAddress" formControlName="addressLine1">
+                <app-form-control-error [control]="personalForm.get('address.addressLine1')"></app-form-control-error>
+            </div>
+            <div class="form-group col-sm-6" [ngClass]="displayFieldStyle(personalForm, 'address.addressLine2')">
+                <label for="inputAddress2" class="form-control-label">Address Line2</label>
+                <input type="text" class="form-control" id="inputAddress2" formControlName="addressLine2">
+                <app-form-control-error [control]="personalForm.get('address.addressLine2')"></app-form-control-error>
+            </div>
+
+            <div class="form-group col-sm-4" [ngClass]="displayFieldStyle(personalForm, 'address.city')">
+                <label for="inputCity" class="form-control-label">City</label>
+                <input type="text" class="form-control" formControlName="city" id="inputCity">
+                <app-form-control-error [control]="personalForm.get('address.city')"></app-form-control-error>
+            </div>
+            <div class="form-group col-sm-4" [ngClass]="displayFieldStyle(personalForm, 'address.state')">
+                <label for="inputState" class="form-control-label">State</label>
+                <select id="inputState" class="form-control" formControlName="state" [ngClass]="displayFieldStyle(personalForm, 'address.state')">
+           <option value="">Please Select</option>
+           <option value="Virginia">Virginia</option>
+            </select>
+                <app-form-control-error [control]="personalForm.get('address.state')"></app-form-control-error>
+            </div>
+            <div class="form-group col-sm-4" [ngClass]="displayFieldStyle(personalForm, 'address.zipCode')">
+                <label for="inputZip" class="form-control-label">Zip</label>
+                <input type="text" class="form-control" id="inputZip" minlength="5" maxlength="10" number-directive [formatType]="'zipCode'" [formattedZipCode]="personalForm.get('address.zipCode')" formControlName="zipCode">
+                <app-form-control-error [control]="personalForm.get('address.zipCode')"></app-form-control-error>
+            </div>
+        </div>
+        <div class="row col-sm-12">
+
+            <div class="col-sm-3" [ngClass]="displayFieldStyle(personalForm, 'phoneNumber')">
+                <label for="inputPhone4" class="form-control-label">Phone Number</label>
+                <div class="form-group">
+                    <input type="text" formControlName="phoneNumber" class="form-control" id="inputPhone4" minlength="10" maxlength="14" number-directive [formatType]="'phoneNumber'" [formattedPhone]="personalForm.get('phoneNumber')" [ngClass]="displayFieldStyle(personalForm, 'phoneNumber')">
+                    <app-form-control-error [control]="personalForm.get('phoneNumber')"></app-form-control-error>
+                </div>
+            </div>
+            <div class="form-group col-sm-3" [ngClass]="displayFieldStyle(personalForm, 'emailId')">
+                <label for="inputEmailId4" class="form-control-label">Email</label>
+                <input type="text" class="form-control" formControlName="emailId" id="inputEmailId4">
+                <app-form-control-error [control]="personalForm.get('emailId')"></app-form-control-error>
+            </div>
+        </div>
+
+        <!--  <div class="form-group">
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+      </div>
+  </div> -->
+        <div class="row justify-content-center">
+            <button type="submit" class="btn btn-primary " (click)="submit()">Submit</button>
+        </div>
+
+    </form>
+</div>

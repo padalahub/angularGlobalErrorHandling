@@ -21,6 +21,7 @@
         "@angular/router": "~7.1.0",
         "bootstrap": "^4.5.3",
         "core-js": "^2.5.4",
+        "jquery": "^3.5.1",
         "node-sass": "^4.14.1",
         "rxjs": "~6.3.3",
         "tslib": "^1.9.0",

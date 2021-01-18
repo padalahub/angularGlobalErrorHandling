@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Patterns } from './common/patterns';
+import { BaseComponent } from '../base/base.component';
+import { Patterns } from '../common/patterns';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-personal-info',
+  templateUrl: './personal-info.component.html',
+  styleUrls: ['./personal-info.component.scss']
 })
-
-export class AppComponent {
-  title = 'angularWorkspace';
+export class PersonalInfoComponent extends BaseComponent implements OnInit {
+  title = 'Personal Form';
   formSubmitted = false;
   personalForm: FormGroup;
   constructor(private formBuilder: FormBuilder, private router:Router ) {
+    super();
    this.createForm();
   }
 
+  ngOnInit(){
+  
+  }
   createForm() {
     this.personalForm = this.formBuilder.group({
       lastName: ['', [Validators.required,Validators.pattern(Patterns.namePattern)]],
@@ -49,14 +53,17 @@ export class AppComponent {
       }
     }
     submit() {
+     this.markFormGroupTouched(this.personalForm);
+      if(this.personalForm.valid) {        
       this.formSubmitted = true;
-      console.log('success clicked');
       this.router.navigate(['/success']);
+      } 
 
     }
     reset(){
       this.formSubmitted = false;
       this.personalForm.reset();
     }
-  }
+
+}
 
