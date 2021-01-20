@@ -39,6 +39,7 @@ export class PersonalInfoComponent extends BaseComponent implements OnInit {
       emailId: ['', [Validators.required,Validators.pattern(Patterns.emailPattern)]],
        });
   }
+  
   displayFieldStyle(formGroup: FormGroup, field: string) {
     if(formGroup && formGroup.get(field)!==null) {
       return {
