@@ -35,7 +35,7 @@ export class AppComponent {
       emailId: ['', [Validators.required,Validators.pattern(Patterns.emailPattern)]],
        });
   }
-  displayFieldStyle(formGroup: FormGroup, field: string) {
+  applyStyleToField(formGroup: FormGroup, field: string) {
     if(formGroup && formGroup.get(field)!==null) {
       return {
         'has-danger':
